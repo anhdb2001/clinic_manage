@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "66f373b510b2b7b51e6a412b"
+  },
+  "id_number": "1122334455",
+  "nurse_code": "NUR001",
+  "name": "Phạm Thị C",
+  "birth_date": {
+    "$date": "1990-02-10T00:00:00.000Z"
+  },
+  "address": "789 Đường KLM, Đà Nẵng",
+  "phone_number": "0901234567",
+  "education_level": "Cao đẳng",
+  "years_of_experience": 8
+},
+{
+  "_id": {
+    "$oid": "66f373e110b2b7b51e6a412d"
+  },
+  "id_number": "5566778899",
+  "nurse_code": "NUR002",
+  "name": "Lê Văn D",
+  "birth_date": {
+    "$date": "1990-02-10T00:00:00.000Z"
+  },
+  "address": "321 Đường QWE, Cần Thơ",
+  "phone_number": "0901234567",
+  "education_level": "Trung cấp",
+  "years_of_experience": 10
+},
+{
+  "_id": {
+    "$oid": "66f3744810b2b7b51e6a4132"
+  },
+  "id_number": "1234567890",
+  "nurse_code": "NUR004",
+  "name": "Nguyễn Thị A",
+  "birth_date": {
+    "$date": "1985-03-15T00:00:00.000Z"
+  },
+  "address": "123 Đường ABC, Hồ Chí Minh",
+  "phone_number": "0909876543",
+  "education_level": "Đại học",
+  "years_of_experience": 5
+},
+{
+  "_id": {
+    "$oid": "66f3745210b2b7b51e6a4134"
+  },
+  "id_number": "0987654321",
+  "nurse_code": "NUR003",
+  "name": "Trần Văn B",
+  "birth_date": {
+    "$date": "1992-07-22T00:00:00.000Z"
+  },
+  "address": "456 Đường DEF, Hà Nội",
+  "phone_number": "0912345678",
+  "education_level": "Cao đẳng",
+  "years_of_experience": 3
+},
+{
+  "_id": {
+    "$oid": "66f3746a10b2b7b51e6a413a"
+  },
+  "id_number": "1122334456",
+  "nurse_code": "NUR005",
+  "name": "Lê Văn C",
+  "birth_date": {
+    "$date": "1988-11-30T00:00:00.000Z"
+  },
+  "address": "789 Đường GHI, Đà Nẵng",
+  "phone_number": "0923456789",
+  "education_level": "Trung cấp",
+  "years_of_experience": 7
+},
+{
+  "_id": {
+    "$oid": "66f3747310b2b7b51e6a413c"
+  },
+  "id_number": "5544332211",
+  "nurse_code": "NUR006",
+  "name": "Phạm Thị D",
+  "birth_date": {
+    "$date": "1995-01-12T00:00:00.000Z"
+  },
+  "address": "321 Đường JKL, Nha Trang",
+  "phone_number": "0934567890",
+  "education_level": "Đại học",
+  "years_of_experience": 2
+},
+{
+  "_id": {
+    "$oid": "66f3747c10b2b7b51e6a413e"
+  },
+  "id_number": "6677889900",
+  "nurse_code": "NUR007",
+  "name": "Hoàng Văn E",
+  "birth_date": {
+    "$date": "1980-06-25T00:00:00.000Z"
+  },
+  "address": "654 Đường MNO, Hải Phòng",
+  "phone_number": "0945678901",
+  "education_level": "Cao đẳng",
+  "years_of_experience": 15
+}]

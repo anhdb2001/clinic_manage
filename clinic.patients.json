@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "id_number": "111222333",
+  "patient_code": "PAT001",
+  "name": "Hoàng Văn E",
+  "birth_date": {
+    "$date": "1995-03-12T00:00:00.000Z"
+  },
+  "address": "15 Nguyễn Trãi, Hà Nội",
+  "phone_number": "0912345678"
+},
+{
+  "_id": {
+    "$oid": "66f3762f10b2b7b51e6a415a"
+  },
+  "id_number": "444555666",
+  "patient_code": "PAT002",
+  "name": "Ngô Thị F",
+  "birth_date": {
+    "$date": "1995-03-12T00:00:00.000Z"
+  },
+  "address": "15 Nguyễn Trãi, Hà Nội",
+  "phone_number": "0938765432"
+},
+{
+  "_id": {
+    "$oid": "66f3767110b2b7b51e6a415c"
+  },
+  "id_number": "777888999",
+  "patient_code": "PAT003",
+  "name": "Trần Văn G",
+  "birth_date": {
+    "$date": "1988-07-15T00:00:00.000Z"
+  },
+  "address": "5 Trần Hưng Đạo, Đà Nẵng",
+  "phone_number": "0909876543"
+},
+{
+  "_id": {
+    "$oid": "66f3767710b2b7b51e6a415e"
+  },
+  "id_number": "222333444",
+  "patient_code": "PAT004",
+  "name": "Phạm Thị H",
+  "birth_date": {
+    "$date": "1975-11-30T00:00:00.000Z"
+  },
+  "address": "10 Lê Lợi, Hải Phòng",
+  "phone_number": "0987654321"
+},
+{
+  "_id": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "id_number": "555666777",
+  "patient_code": "PAT005",
+  "name": "Nguyễn Văn I",
+  "birth_date": {
+    "$date": "1992-04-20T00:00:00.000Z"
+  },
+  "address": "30 Bạch Đằng, Cần Thơ",
+  "phone_number": "0911122233"
+},
+{
+  "_id": {
+    "$oid": "66f3768510b2b7b51e6a4162"
+  },
+  "id_number": "888999000",
+  "patient_code": "PAT006",
+  "name": "Lê Thị K",
+  "birth_date": {
+    "$date": "1985-09-05T00:00:00.000Z"
+  },
+  "address": "40 Hùng Vương, Nha Trang",
+  "phone_number": "0902233445"
+}]

@@ -1,0 +1,38 @@
+db.visits.aggregate([
+    {
+      $lookup: {
+        from: "medicines",
+        localField: "treatments", 
+        foreignField: "_id",
+        as: "medicineDetails" 
+      }
+    },
+    {
+      $unwind: {
+        path: "$medicineDetails",
+        preserveNullAndEmptyArrays: true 
+      }
+    },
+    {
+      $group: {
+        _id: "$_id", 
+        visit_cost: { $first: "$total_cost" }, 
+        total_medicine_cost: {
+          $sum: { $ifNull: ["$medicineDetails.price", 0] } 
+        }
+      }
+    },
+    {
+      $project: {
+        _id: 0,
+        total_revenue: { $add: ["$visit_cost", "$total_medicine_cost"] } 
+      }
+    },
+    {
+      $group: {
+        _id: 0,
+        total_revenue: { $sum: "$total_revenue" } 
+      }
+    }
+  ]);
+  

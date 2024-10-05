@@ -1,0 +1,118 @@
+db.patients.aggregate([
+    {
+        $match: { _id: ObjectId("66f3767f10b2b7b51e6a4160") } // ID bệnh nhân
+    },
+    {
+        $lookup: {
+            from: "visits",
+            localField: "_id",
+            foreignField: "patient",
+            as: "visitDetails"
+        }
+    },
+    {
+        $unwind: "$visitDetails" // Tách từng lần khám ra ngoài
+    },
+    {
+        $sort: { "visitDetails.admission_date": 1 } // Sắp xếp theo ngày khám tăng dần
+    },
+    {
+        $group: {
+            _id: {
+                patientId: "$_id",
+                diseaseName: "$visitDetails.disease_name" // Nhóm theo tên bệnh
+            },
+            visitData: {
+                $push: {
+                    visit_code: "$visitDetails.visit_code",
+                    admission_date: "$visitDetails.admission_date",
+                    discharge_date: "$visitDetails.discharge_date",
+                    total_cost: "$visitDetails.total_cost",
+                    isCured: "$visitDetails.isCured"
+                }
+            },
+            visit_count: { $sum: 1 }, // Đếm số lần khám cho mỗi loại bệnh
+            latestAdmissionDate: { $max: "$visitDetails.admission_date" } // Lấy ngày khám cuối cùng
+        }
+    },
+    {
+        $lookup: {
+            from: "patients",
+            localField: "_id.patientId",
+            foreignField: "_id",
+            as: "patientInfo" // Kết hợp thông tin bệnh nhân
+        }
+    },
+    {
+        $unwind: "$patientInfo" // Tách thông tin bệnh nhân ra ngoài
+    },
+    {
+        $set: {
+            visitData: {
+                $map: {
+                    input: "$visitData",
+                    as: "data",
+                    in: {
+                        visit_code: "$$data.visit_code",
+                        admission_date: "$$data.admission_date",
+                        discharge_date: "$$data.discharge_date",
+                        total_cost: "$$data.total_cost",
+                        isCured: "$$data.isCured",
+                        currentStatus: {
+                            $cond: {
+                                if: { $eq: ["$$data.isCured", true] },
+                                then: "Cured",
+                                else: "Under Treatment"
+                            }
+                        },
+                        visit_count: {
+                            $add: [
+                                1,
+                                { $indexOfArray: ["$visitData.visit_code", "$$data.visit_code"] }
+                            ] // Đếm số lần khám cho mỗi bệnh
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        $group: {
+            _id: {
+                patient_id: "$patientInfo._id",
+                patient_code: "$patientInfo.patient_code",
+                name: "$patientInfo.name",
+                birth_date: "$patientInfo.birth_date",
+                address: "$patientInfo.address",
+                phone_number: "$patientInfo.phone_number",
+            },
+            diseaseVisits: { 
+                $push: {
+                    disease_name: "$_id.diseaseName",
+                    visit_count: "$visit_count",
+                    latestAdmissionDate: "$latestAdmissionDate", // Ngày khám cuối cùng
+                    currentStatus: {
+                        $cond: {
+                            if: { $eq: [{ $last: "$visitData.isCured" }, true] }, // Sử dụng $last để lấy giá trị cuối cùng
+                            then: "Cured",
+                            else: "Under Treatment"
+                        }
+                    },
+                    visitData: "$visitData"
+                } 
+            }
+        }
+    },
+    {
+        $project: {
+            _id: 0, // Không hiển thị trường _id
+            patient_id: "$_id.patient_id", // ID bệnh nhân
+            patient_code: "$_id.patient_code",
+            name: "$_id.name",
+            birth_date: "$_id.birth_date",
+            address: "$_id.address",
+            phone_number: "$_id.phone_number",
+            diseaseVisits: 1 // Hiển thị diseaseVisits
+        }
+    }
+]);

@@ -1,0 +1,532 @@
+[{
+  "_id": {
+    "$oid": "66f37939d7435097e77bcd8c"
+  },
+  "visit_code": "VIS001",
+  "admission_date": {
+    "$date": "2024-09-01T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-01T00:00:00.000Z"
+  },
+  "disease_name": "Viêm phổi",
+  "patient": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "doctor": {
+    "$oid": "66f3b586d525244e84511bd3"
+  },
+  "nurses": [
+    {
+      "$oid": "66f373b510b2b7b51e6a412b"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374c410b2b7b51e6a4141"
+    },
+    {
+      "$oid": "66f374e310b2b7b51e6a4143"
+    }
+  ],
+  "total_cost": 500000,
+  "isCured": false
+},
+{
+  "_id": {
+    "$oid": "66f379cad7435097e77bcdb3"
+  },
+  "visit_code": "VIS002",
+  "admission_date": {
+    "$date": "2024-09-10T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-12T00:00:00.000Z"
+  },
+  "disease_name": "Sốt xuất huyết",
+  "patient": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "doctor": {
+    "$oid": "66f3b579d525244e84511bd1"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3745210b2b7b51e6a4134"
+    },
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3747310b2b7b51e6a413c"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f3759210b2b7b51e6a414b"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    }
+  ],
+  "total_cost": 300000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f37b3ed7435097e77bcdda"
+  },
+  "visit_code": "VIS005",
+  "admission_date": {
+    "$date": "2024-09-06T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-07T00:00:00.000Z"
+  },
+  "disease_name": "Viêm phổi",
+  "patient": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "doctor": {
+    "$oid": "66f3b579d525244e84511bd1"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3747310b2b7b51e6a413c"
+    },
+    {
+      "$oid": "66f3747c10b2b7b51e6a413e"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f3759210b2b7b51e6a414b"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    }
+  ],
+  "total_cost": 300000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f37b60d7435097e77bcde0"
+  },
+  "visit_code": "VIS006",
+  "admission_date": {
+    "$date": "2024-09-03T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-03T00:00:00.000Z"
+  },
+  "disease_name": "Viêm phổi",
+  "patient": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "doctor": {
+    "$oid": "66f3b592d525244e84511bd5"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3747310b2b7b51e6a413c"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    }
+  ],
+  "total_cost": 450000,
+  "isCured": false
+},
+{
+  "_id": {
+    "$oid": "66f3b9dd72dff91718ad5ba5"
+  },
+  "visit_code": "VIS008",
+  "admission_date": {
+    "$date": "2024-09-20T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-25T00:00:00.000Z"
+  },
+  "disease_name": "Viêm phổi",
+  "patient": {
+    "$oid": "66f3767110b2b7b51e6a415c"
+  },
+  "doctor": {
+    "$oid": "66f3b592d525244e84511bd5"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3747310b2b7b51e6a413c"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    }
+  ],
+  "total_cost": 450000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f37ba8d7435097e77bcde8"
+  },
+  "visit_code": "VIS007",
+  "admission_date": {
+    "$date": "2024-10-01T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-10-01T00:00:00.000Z"
+  },
+  "disease_name": "Cảm Cúm",
+  "patient": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "doctor": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3747c10b2b7b51e6a413e"
+    },
+    {
+      "$oid": "66f3744810b2b7b51e6a4132"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374c410b2b7b51e6a4141"
+    },
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f3ba7572dff91718ad5bbc"
+  },
+  "visit_code": "VIS009",
+  "admission_date": {
+    "$date": "2024-10-01T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-10-05T00:00:00.000Z"
+  },
+  "disease_name": "Cảm Cúm",
+  "patient": {
+    "$oid": "66f3768510b2b7b51e6a4162"
+  },
+  "doctor": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3747310b2b7b51e6a413c"
+    },
+    {
+      "$oid": "66f3744810b2b7b51e6a4132"
+    },
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374c410b2b7b51e6a4141"
+    },
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f3badd72dff91718ad5bc7"
+  },
+  "visit_code": "VIS010",
+  "admission_date": {
+    "$date": "2024-09-27T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-27T00:00:00.000Z"
+  },
+  "disease_name": "Cảm Cúm",
+  "patient": {
+    "$oid": "66f3761510b2b7b51e6a4158"
+  },
+  "doctor": {
+    "$oid": "66f3b53ad525244e84511bcf"
+  },
+  "nurses": [
+    {
+      "$oid": "66f373b510b2b7b51e6a412b"
+    },
+    {
+      "$oid": "66f373e110b2b7b51e6a412d"
+    },
+    {
+      "$oid": "66f3744810b2b7b51e6a4132"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374c410b2b7b51e6a4141"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f3baf172dff91718ad5bcf"
+  },
+  "visit_code": "VIS011",
+  "admission_date": {
+    "$date": "2024-09-01T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-05T00:00:00.000Z"
+  },
+  "disease_name": "Cảm Cúm",
+  "patient": {
+    "$oid": "66f3762f10b2b7b51e6a415a"
+  },
+  "doctor": {
+    "$oid": "66f3b53ad525244e84511bcf"
+  },
+  "nurses": [
+    {
+      "$oid": "66f373b510b2b7b51e6a412b"
+    },
+    {
+      "$oid": "66f3745210b2b7b51e6a4134"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374c410b2b7b51e6a4141"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    }
+  ],
+  "total_cost": 200000,
+  "isCured": false
+},
+{
+  "_id": {
+    "$oid": "66f37ab1d7435097e77bcdc8"
+  },
+  "visit_code": "VIS004",
+  "admission_date": {
+    "$date": "2024-09-20T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-22T00:00:00.000Z"
+  },
+  "disease_name": "Gãy xương",
+  "patient": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "doctor": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f373b510b2b7b51e6a412b"
+    },
+    {
+      "$oid": "66f373e110b2b7b51e6a412d"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f375b710b2b7b51e6a4155"
+    }
+  ],
+  "total_cost": 700000,
+  "isCured": false
+},
+{
+  "_id": {
+    "$oid": "66f3bb7b72dff91718ad5bf7"
+  },
+  "visit_code": "VIS0012",
+  "admission_date": {
+    "$date": "2024-09-25T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-26T00:00:00.000Z"
+  },
+  "disease_name": "Gãy xương",
+  "patient": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "doctor": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f373b510b2b7b51e6a412b"
+    },
+    {
+      "$oid": "66f373e110b2b7b51e6a412d"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f375b710b2b7b51e6a4155"
+    }
+  ],
+  "total_cost": 700000,
+  "isCured": true
+},
+{
+  "_id": {
+    "$oid": "66f3bb9f72dff91718ad5c01"
+  },
+  "visit_code": "VIS0011",
+  "admission_date": {
+    "$date": "2024-09-24T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-26T00:00:00.000Z"
+  },
+  "disease_name": "Gãy xương",
+  "patient": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "doctor": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3744810b2b7b51e6a4132"
+    },
+    {
+      "$oid": "66f373e110b2b7b51e6a412d"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    },
+    {
+      "$oid": "66f375a510b2b7b51e6a414f"
+    },
+    {
+      "$oid": "66f375b710b2b7b51e6a4155"
+    }
+  ],
+  "total_cost": 700000,
+  "isCured": false
+},
+{
+  "_id": {
+    "$oid": "66f3bbdf72dff91718ad5c08"
+  },
+  "visit_code": "VIS0013",
+  "admission_date": {
+    "$date": "2024-09-27T00:00:00.000Z"
+  },
+  "discharge_date": {
+    "$date": "2024-09-28T00:00:00.000Z"
+  },
+  "disease_name": "Cảm Cúm",
+  "patient": {
+    "$oid": "66f3767f10b2b7b51e6a4160"
+  },
+  "doctor": {
+    "$oid": "66f3b592d525244e84511bd5"
+  },
+  "nurses": [
+    {
+      "$oid": "66f3746a10b2b7b51e6a413a"
+    },
+    {
+      "$oid": "66f3744810b2b7b51e6a4132"
+    }
+  ],
+  "treatments": [
+    {
+      "$oid": "66f374f210b2b7b51e6a4145"
+    },
+    {
+      "$oid": "66f3758910b2b7b51e6a4149"
+    }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+}]

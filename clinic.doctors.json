@@ -1,0 +1,111 @@
+[{
+  "_id": {
+    "$oid": "66f3b53ad525244e84511bcf"
+  },
+  "id_number": "444555666",
+  "doctor_code": "BS004",
+  "name": "Phạm Thị D",
+  "birth_date": {
+    "$date": "1995-02-28T00:00:00.000Z"
+  },
+  "address": "321 Đường JKL, Quận 4, TP.HCM",
+  "job_level": "Bác sĩ tập sự",
+  "years_of_experience": 2,
+  "education_level": "Bác sĩ đa khoa",
+  "specializations": [
+    "Da liễu"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f3b579d525244e84511bd1"
+  },
+  "id_number": "123456789",
+  "doctor_code": "DOC001",
+  "name": "Nguyễn Văn An",
+  "birth_date": {
+    "$date": "1975-06-15T00:00:00.000Z"
+  },
+  "address": "123 Đường ABC, Hà Nội",
+  "job_level": "Chuyên gia",
+  "years_of_experience": 20,
+  "education_level": "Tiến sĩ",
+  "specializations": [
+    "Tim mạch",
+    "Hô hấp"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f3b586d525244e84511bd3"
+  },
+  "id_number": "987654321",
+  "doctor_code": "DOC002",
+  "name": "Trần Thị B",
+  "birth_date": {
+    "$date": "1980-11-20T00:00:00.000Z"
+  },
+  "address": "456 Đường XYZ, TP Hồ Chí Minh",
+  "job_level": "Chuyên viên",
+  "years_of_experience": 20,
+  "education_level": "Thạc sĩ",
+  "specializations": [
+    "Nhi khoa"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f3b592d525244e84511bd5"
+  },
+  "id_number": "123456781",
+  "doctor_code": "BS001",
+  "name": "Nguyễn Văn A",
+  "birth_date": {
+    "$date": "1985-05-15T00:00:00.000Z"
+  },
+  "address": "123 Đường ABC, Quận 1, TP.HCM",
+  "job_level": "Chuyên khoa I",
+  "years_of_experience": 10,
+  "education_level": "Bác sĩ đa khoa",
+  "specializations": [
+    "Nội khoa",
+    "Tim mạch"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f3b59dd525244e84511bd7"
+  },
+  "id_number": "987654322",
+  "doctor_code": "BS002",
+  "name": "Trần Thị Bình",
+  "birth_date": {
+    "$date": "1990-09-20T00:00:00.000Z"
+  },
+  "address": "456 Đường DEF, Quận 2, TP.HCM",
+  "job_level": "Bác sĩ chính",
+  "years_of_experience": 8,
+  "education_level": "Bác sĩ chuyên khoa",
+  "specializations": [
+    "Ngoại khoa",
+    "Nhi"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66f3b5a9d525244e84511bd9"
+  },
+  "id_number": "111222333",
+  "doctor_code": "BS003",
+  "name": "Lê Văn C",
+  "birth_date": {
+    "$date": "1982-12-01T00:00:00.000Z"
+  },
+  "address": "789 Đường GHI, Quận 3, TP.HCM",
+  "job_level": "Bác sĩ",
+  "years_of_experience": 15,
+  "education_level": "Bác sĩ đa khoa",
+  "specializations": [
+    "Sản khoa"
+  ]
+}]

@@ -1,0 +1,36 @@
+
+db.visits.aggregate([
+    // 1. Lọc các lần khám trong tháng mục tiêu
+    {
+      $match: {
+        admission_date: {
+          $gte: ISODate("2024-09-01T00:00:00Z"), // Đầu tháng
+          $lt: ISODate("2024-10-01T00:00:00Z")  // Cuối tháng
+        }
+      }
+    },
+    {
+      $group: {
+        _id: { disease: "$disease_name", patient: "$patient" }
+      }
+    },
+    {
+      $group: {
+        _id: "$_id.disease",
+        patient_codes: { $addToSet: "$_id.patient" }, // Sử dụng $addToSet để tránh trùng lặp mã bệnh nhân
+        patient_count: { $sum: 1 } // Đếm số lượng bệnh nhân duy nhất
+      }
+    },
+    {
+      $sort: { patient_count: -1 }
+    },
+    {
+      $project: {
+        _id: 0,
+        disease: "$_id", // Tên bệnh
+        patient_codes: 1, // Danh sách mã bệnh nhân
+        patient_count: 1 // Số lượng bệnh nhân
+      }
+    }
+  ]);
+  

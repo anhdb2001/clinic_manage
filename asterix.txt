@@ -1,0 +1,1291 @@
+CREATE DATAVERSE clinic; 
+USE clinic;  
+
+CREATE TYPE doctorType AS {
+    id_number: string,    
+    doctor_code: string,      
+    name: string,        
+    birth_date: date,         
+    address: string,            
+    job_level: string,        
+    years_of_experience: int, 
+    education_level: string,   
+    specializations: [string]
+};
+
+CREATE DATASET doctors(doctorType) PRIMARY KEY doctor_code;
+
+USE clinic;  
+
+INSERT INTO doctors ( [{ 
+      "id_number": "444555666",
+      "doctor_code": "BS004",
+      "name": "Phạm Thị D",
+      "birth_date": date("1995-02-28"),
+      "address": "321 Đường JKL, Quận 4, TP.HCM",
+      "job_level": "Bác sĩ tập sự",
+      "years_of_experience": 2,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Da liễu"]
+    },
+    { 
+      "id_number": "123456789",
+      "doctor_code": "DOC001",
+      "name": "Nguyễn Văn An",
+      "birth_date": date("1975-06-15"),
+      "address": "123 Đường ABC, Hà Nội",
+      "job_level": "Chuyên gia",
+      "years_of_experience": 20,
+      "education_level": "Tiến sĩ",
+      "specializations": ["Tim mạch", "Hô hấp"]
+    },
+    { 
+      "id_number": "987654321",
+      "doctor_code": "DOC002",
+      "name": "Trần Thị B",
+      "birth_date": date("1980-11-20"),
+      "address": "456 Đường XYZ, TP Hồ Chí Minh",
+      "job_level": "Chuyên viên",
+      "years_of_experience": 20,
+      "education_level": "Thạc sĩ",
+      "specializations": ["Nhi khoa"]
+    },
+    { 
+      "id_number": "123456781",
+      "doctor_code": "BS001",
+      "name": "Nguyễn Văn A",
+      "birth_date": date("1985-05-15"),
+      "address": "123 Đường ABC, Quận 1, TP.HCM",
+      "job_level": "Chuyên khoa I",
+      "years_of_experience": 10,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Nội khoa", "Tim mạch"]
+    },
+    { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+    { 
+      "id_number": "111222333",
+      "doctor_code": "BS003",
+      "name": "Lê Văn C",
+      "birth_date": date("1982-12-01"),
+      "address": "789 Đường GHI, Quận 3, TP.HCM",
+      "job_level": "Bác sĩ",
+      "years_of_experience": 15,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Sản khoa"]
+    }]);
+
+
+SELECT * FROM doctors;
+
+
+CREATE TYPE nurseType AS {
+    id_number: string,    
+    nurse_code: string,      
+    name: string,        
+    birth_date: date,         
+    address: string,            
+    phone_number: string,        
+    education_level: string,   
+    years_of_experience: int
+};
+
+-- Tạo dataset cho y tá
+CREATE DATASET nurses(nurseType) PRIMARY KEY nurse_code;
+
+INSERT INTO nurses ([
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    },
+    {
+        "id_number": "5566778899",
+        "nurse_code": "NUR002",
+        "name": "Lê Văn D",
+        "birth_date": date("1990-02-10"),
+        "address": "321 Đường QWE, Cần Thơ",
+        "phone_number": "0901234567",
+        "education_level": "Trung cấp",
+        "years_of_experience": 10
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    },
+    {
+        "id_number": "0987654321",
+        "nurse_code": "NUR003",
+        "name": "Trần Văn B",
+        "birth_date": date("1992-07-22"),
+        "address": "456 Đường DEF, Hà Nội",
+        "phone_number": "0912345678",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 3
+    },
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    },
+    {
+        "id_number": "6677889900",
+        "nurse_code": "NUR007",
+        "name": "Hoàng Văn E",
+        "birth_date": date("1980-06-25"),
+        "address": "654 Đường MNO, Hải Phòng",
+        "phone_number": "0945678901",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 15
+    }]);
+
+
+USE clinic;  
+CREATE TYPE patientType AS {
+    id_number: string,        // Chứng minh thư/CMT
+    patient_code: string,     // Mã số bệnh nhân
+    name: string,             // Tên bệnh nhân
+    birth_date: date,         // Ngày sinh
+    address: string,          // Địa chỉ
+    phone_number: string       // Số điện thoại
+};
+CREATE DATASET patients(patientType) PRIMARY KEY patient_code;
+
+
+INSERT INTO patients ([
+    {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+    {
+      "id_number": "444555666",
+      "patient_code": "PAT002",
+      "name": "Ngô Thị F",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0938765432"
+    },
+    {
+      "id_number": "777888999",
+      "patient_code": "PAT003",
+      "name": "Trần Văn G",
+      "birth_date": date("1988-07-15"),
+      "address": "5 Trần Hưng Đạo, Đà Nẵng",
+      "phone_number": "0909876543"
+    },
+    {
+      "id_number": "222333444",
+      "patient_code": "PAT004",
+      "name": "Phạm Thị H",
+      "birth_date": date("1975-11-30"),
+      "address": "10 Lê Lợi, Hải Phòng",
+      "phone_number": "0987654321"
+    },
+    {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+    {
+      "id_number": "888999000",
+      "patient_code": "PAT006",
+      "name": "Lê Thị K",
+      "birth_date": date("1985-09-05"),
+      "address": "40 Hùng Vương, Nha Trang",
+      "phone_number": "0902233445"
+    }
+  ]);
+
+
+
+use clinic;
+ CREATE TYPE  MedicineType AS {
+  medicine_code: string,
+  medicine_name: string,
+  price: double
+};
+
+
+-- Create a dataset for Medicine
+CREATE DATASET medicines(MedicineType) PRIMARY KEY medicine_code;
+
+USE clinic;  
+INSERT INTO medicines ([
+{ "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+  { "medicine_code": "MED002", "medicine_name": "Amoxicillin 250mg", "price": 15000.0 },
+  { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+  { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 },
+  { "medicine_code": "MED005", "medicine_name": "Aspirin 100mg", "price": 8000.0 },
+  { "medicine_code": "MED006", "medicine_name": "Loperamide 2mg", "price": 6000.0 },
+  { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+  { "medicine_code": "MED008", "medicine_name": "Cetirizine 10mg", "price": 7000.0 },
+  { "medicine_code": "MED009", "medicine_name": "Montelukast 10mg", "price": 16000.0 },
+  { "medicine_code": "MED010", "medicine_name": "Metformin 500mg", "price": 9000.0 }
+
+ ]);
+
+
+USE clinic; 
+create type VisitType as {
+    visit_code: string,                 
+    admission_date: date,             
+    discharge_date: date?,            
+    disease_name: string,                 
+    patient: patientType,           
+    doctor: doctorType,             
+    nurses: [nurseType],      
+    treatments: [MedicineType],   
+    total_cost: double,        
+    isCured: boolean 
+};
+
+CREATE DATASET visits(VisitType) PRIMARY KEY visit_code;
+
+INSERT INTO visits([{
+  
+  "visit_code": "VIS001",
+  "admission_date": date("2024-09-01"),
+  "discharge_date": date("2024-09-01"),
+  "disease_name": "Viêm phổi",
+  "patient": {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+  "doctor": { 
+      "id_number": "987654321",
+      "doctor_code": "DOC002",
+      "name": "Trần Thị B",
+      "birth_date": date("1980-11-20"),
+      "address": "456 Đường XYZ, TP Hồ Chí Minh",
+      "job_level": "Chuyên viên",
+      "years_of_experience": 20,
+      "education_level": "Thạc sĩ",
+      "specializations": ["Nhi khoa"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    }
+  ],
+  "treatments": [
+    { "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+      { "medicine_code": "MED002", "medicine_name": "Amoxicillin 250mg", "price": 15000.0 }
+  ],
+  "total_cost": 500000,
+  "isCured": false
+},
+{
+  
+  "visit_code": "VIS002",
+  "admission_date": date("2024-09-10"),
+  "discharge_date": date("2024-09-12"),
+  "disease_name": "Sốt xuất huyết",
+  "patient": {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+  "doctor": { 
+      "id_number": "123456789",
+      "doctor_code": "DOC001",
+      "name": "Nguyễn Văn An",
+      "birth_date": date("1975-06-15"),
+      "address": "123 Đường ABC, Hà Nội",
+      "job_level": "Chuyên gia",
+      "years_of_experience": 20,
+      "education_level": "Tiến sĩ",
+      "specializations": ["Tim mạch", "Hô hấp"]
+    },
+  "nurses": [
+    {
+        "id_number": "0987654321",
+        "nurse_code": "NUR003",
+        "name": "Trần Văn B",
+        "birth_date": date("1992-07-22"),
+        "address": "456 Đường DEF, Hà Nội",
+        "phone_number": "0912345678",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 3
+    },
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED005", "medicine_name": "Aspirin 100mg", "price": 8000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 }
+  ],
+  "total_cost": 300000,
+  "isCured": true
+},
+{
+  "visit_code": "VIS005",
+  "admission_date": date("2024-09-06"),
+  "discharge_date": date("2024-09-07"),
+  "disease_name": "Viêm phổi",
+  "patient": {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+  "doctor": { 
+      "id_number": "123456789",
+      "doctor_code": "DOC001",
+      "name": "Nguyễn Văn An",
+      "birth_date": date("1975-06-15"),
+      "address": "123 Đường ABC, Hà Nội",
+      "job_level": "Chuyên gia",
+      "years_of_experience": 20,
+      "education_level": "Tiến sĩ",
+      "specializations": ["Tim mạch", "Hô hấp"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    },
+    {
+        "id_number": "6677889900",
+        "nurse_code": "NUR007",
+        "name": "Hoàng Văn E",
+        "birth_date": date("1980-06-25"),
+        "address": "654 Đường MNO, Hải Phòng",
+        "phone_number": "0945678901",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 15
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED005", "medicine_name": "Aspirin 100mg", "price": 8000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 }
+  ],
+  "total_cost": 300000,
+  "isCured": true
+},
+{
+  "visit_code": "VIS006",
+  "admission_date": date("2024-09-03"),
+  "discharge_date": date("2024-09-03"),
+  "disease_name": "Viêm phổi",
+  "patient": {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+  "doctor": { 
+      "id_number": "123456781",
+      "doctor_code": "BS001",
+      "name": "Nguyễn Văn A",
+      "birth_date": date("1985-05-15"),
+      "address": "123 Đường ABC, Quận 1, TP.HCM",
+      "job_level": "Chuyên khoa I",
+      "years_of_experience": 10,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Nội khoa", "Tim mạch"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 }
+  ],
+  "total_cost": 450000,
+  "isCured": false
+},
+{
+  "visit_code": "VIS008",
+  "admission_date": date("2024-09-20"),
+  "discharge_date": date("2024-09-25"),
+  "disease_name": "Viêm phổi",
+  "patient": {
+      "id_number": "777888999",
+      "patient_code": "PAT003",
+      "name": "Trần Văn G",
+      "birth_date": date("1988-07-15"),
+      "address": "5 Trần Hưng Đạo, Đà Nẵng",
+      "phone_number": "0909876543"
+    },
+  "doctor": { 
+      "id_number": "123456781",
+      "doctor_code": "BS001",
+      "name": "Nguyễn Văn A",
+      "birth_date": date("1985-05-15"),
+      "address": "123 Đường ABC, Quận 1, TP.HCM",
+      "job_level": "Chuyên khoa I",
+      "years_of_experience": 10,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Nội khoa", "Tim mạch"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 }
+  ],
+  "total_cost": 450000,
+  "isCured": true
+},
+{
+  
+  "visit_code": "VIS007",
+  "admission_date": date("2024-10-01"),
+  "discharge_date": date("2024-10-01"),
+  "disease_name": "Cảm Cúm",
+  "patient": {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+  "doctor": { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+  "nurses": [
+    {
+        "id_number": "6677889900",
+        "nurse_code": "NUR007",
+        "name": "Hoàng Văn E",
+        "birth_date": date("1980-06-25"),
+        "address": "654 Đường MNO, Hải Phòng",
+        "phone_number": "0945678901",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 15
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    }
+  ],
+  "treatments": [
+    { "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "visit_code": "VIS009",
+  "admission_date": date("2024-10-01"),
+  "discharge_date": date("2024-10-05"),
+  "disease_name": "Cảm Cúm",
+  "patient": {
+      "id_number": "888999000",
+      "patient_code": "PAT006",
+      "name": "Lê Thị K",
+      "birth_date": date("1985-09-05"),
+      "address": "40 Hùng Vương, Nha Trang",
+      "phone_number": "0902233445"
+    },
+  "doctor": { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+  "nurses": [
+    {
+        "id_number": "5544332211",
+        "nurse_code": "NUR006",
+        "name": "Phạm Thị D",
+        "birth_date": date("1995-01-12"),
+        "address": "321 Đường JKL, Nha Trang",
+        "phone_number": "0934567890",
+        "education_level": "Đại học",
+        "years_of_experience": 2
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    },
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    }
+  ],
+  "treatments": [
+    { "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+
+     { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "visit_code": "VIS010",
+  "admission_date": date("2024-09-27"),
+  "discharge_date": date("2024-09-27"),
+  "disease_name": "Cảm Cúm",
+  "patient": {
+      "id_number": "111222333",
+      "patient_code": "PAT001",
+      "name": "Hoàng Văn E",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0912345678"
+    },
+  "doctor": { 
+      "id_number": "444555666",
+      "doctor_code": "BS004",
+      "name": "Phạm Thị D",
+      "birth_date": date("1995-02-28"),
+      "address": "321 Đường JKL, Quận 4, TP.HCM",
+      "job_level": "Bác sĩ tập sự",
+      "years_of_experience": 2,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Da liễu"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    },
+    {
+        "id_number": "5566778899",
+        "nurse_code": "NUR002",
+        "name": "Lê Văn D",
+        "birth_date": date("1990-02-10"),
+        "address": "321 Đường QWE, Cần Thơ",
+        "phone_number": "0901234567",
+        "education_level": "Trung cấp",
+        "years_of_experience": 10
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    }
+  ],
+  "treatments": [
+    { "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 }
+
+  ],
+  "total_cost": 200000,
+  "isCured": true
+},
+{
+  "visit_code": "VIS011",
+  "admission_date": date("2024-09-01"),
+  "discharge_date": date("2024-09-05"),
+  "disease_name": "Cảm Cúm",
+  "patient": {
+      "id_number": "444555666",
+      "patient_code": "PAT002",
+      "name": "Ngô Thị F",
+      "birth_date": date("1995-03-12"),
+      "address": "15 Nguyễn Trãi, Hà Nội",
+      "phone_number": "0938765432"
+    },
+  "doctor": { 
+      "id_number": "444555666",
+      "doctor_code": "BS004",
+      "name": "Phạm Thị D",
+      "birth_date": date("1995-02-28"),
+      "address": "321 Đường JKL, Quận 4, TP.HCM",
+      "job_level": "Bác sĩ tập sự",
+      "years_of_experience": 2,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Da liễu"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    },
+    {
+        "id_number": "0987654321",
+        "nurse_code": "NUR003",
+        "name": "Trần Văn B",
+        "birth_date": date("1992-07-22"),
+        "address": "456 Đường DEF, Hà Nội",
+        "phone_number": "0912345678",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 3
+    }
+  ],
+  "treatments": [
+    { "medicine_code": "MED001", "medicine_name": "Paracetamol 500mg", "price": 10000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 }
+
+  ],
+  "total_cost": 200000,
+  "isCured": false
+},
+{
+
+  "visit_code": "VIS004",
+  "admission_date": date("2024-09-20"),
+  "discharge_date": date("2024-09-22"),
+  "disease_name": "Gãy xương",
+  "patient": {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+  "doctor": { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    },
+    {
+        "id_number": "5566778899",
+        "nurse_code": "NUR002",
+        "name": "Lê Văn D",
+        "birth_date": date("1990-02-10"),
+        "address": "321 Đường QWE, Cần Thơ",
+        "phone_number": "0901234567",
+        "education_level": "Trung cấp",
+        "years_of_experience": 10
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 },
+
+     { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+  { "medicine_code": "MED010", "medicine_name": "Metformin 500mg", "price": 9000.0 }
+  ],
+  "total_cost": 700000,
+  "isCured": false
+},
+{
+  "visit_code": "VIS0012",
+  "admission_date": date("2024-09-25"),
+  "discharge_date": date("2024-09-26"),
+  "disease_name": "Gãy xương",
+  "patient": {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+  "doctor": { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "1122334455",
+        "nurse_code": "NUR001",
+        "name": "Phạm Thị C",
+        "birth_date": date("1990-02-10"),
+        "address": "789 Đường KLM, Đà Nẵng",
+        "phone_number": "0901234567",
+        "education_level": "Cao đẳng",
+        "years_of_experience": 8
+    },
+    {
+        "id_number": "5566778899",
+        "nurse_code": "NUR002",
+        "name": "Lê Văn D",
+        "birth_date": date("1990-02-10"),
+        "address": "321 Đường QWE, Cần Thơ",
+        "phone_number": "0901234567",
+        "education_level": "Trung cấp",
+        "years_of_experience": 10
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+  { "medicine_code": "MED010", "medicine_name": "Metformin 500mg", "price": 9000.0 }
+  ],
+  "total_cost": 700000,
+  "isCured": true
+},
+{
+
+  "visit_code": "VIS0011",
+  "admission_date": date("2024-09-24"),
+  "discharge_date": date("2024-09-26"),
+  "disease_name": "Gãy xương",
+  "patient": {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+  "doctor": { 
+      "id_number": "987654322",
+      "doctor_code": "BS002",
+      "name": "Trần Thị Bình",
+      "birth_date": date("1990-09-20"),
+      "address": "456 Đường DEF, Quận 2, TP.HCM",
+      "job_level": "Bác sĩ chính",
+      "years_of_experience": 8,
+      "education_level": "Bác sĩ chuyên khoa",
+      "specializations": ["Ngoại khoa", "Nhi"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    },
+    {
+        "id_number": "5566778899",
+        "nurse_code": "NUR002",
+        "name": "Lê Văn D",
+        "birth_date": date("1990-02-10"),
+        "address": "321 Đường QWE, Cần Thơ",
+        "phone_number": "0901234567",
+        "education_level": "Trung cấp",
+        "years_of_experience": 10
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 },
+
+      { "medicine_code": "MED007", "medicine_name": "Omeprazole 20mg", "price": 14000.0 },
+
+      { "medicine_code": "MED010", "medicine_name": "Metformin 500mg", "price": 9000.0 }
+
+  ],
+  "total_cost": 700000,
+  "isCured": false
+},
+{
+  "visit_code": "VIS0013",
+  "admission_date": date("2024-09-27"),
+  "discharge_date": date("2024-09-28"),
+  "disease_name": "Cảm Cúm",
+  "patient": {
+      "id_number": "555666777",
+      "patient_code": "PAT005",
+      "name": "Nguyễn Văn I",
+      "birth_date": date("1992-04-20"),
+      "address": "30 Bạch Đằng, Cần Thơ",
+      "phone_number": "0911122233"
+    },
+  "doctor": { 
+      "id_number": "123456781",
+      "doctor_code": "BS001",
+      "name": "Nguyễn Văn A",
+      "birth_date": date("1985-05-15"),
+      "address": "123 Đường ABC, Quận 1, TP.HCM",
+      "job_level": "Chuyên khoa I",
+      "years_of_experience": 10,
+      "education_level": "Bác sĩ đa khoa",
+      "specializations": ["Nội khoa", "Tim mạch"]
+    },
+  "nurses": [
+    {
+        "id_number": "1122334456",
+        "nurse_code": "NUR005",
+        "name": "Lê Văn C",
+        "birth_date": date("1988-11-30"),
+        "address": "789 Đường GHI, Đà Nẵng",
+        "phone_number": "0923456789",
+        "education_level": "Trung cấp",
+        "years_of_experience": 7
+    },
+    {
+        "id_number": "1234567890",
+        "nurse_code": "NUR004",
+        "name": "Nguyễn Thị A",
+        "birth_date": date("1985-03-15"),
+        "address": "123 Đường ABC, Hồ Chí Minh",
+        "phone_number": "0909876543",
+        "education_level": "Đại học",
+        "years_of_experience": 5
+    }
+  ],
+  "treatments": [
+      { "medicine_code": "MED003", "medicine_name": "Vitamin C", "price": 50000.0 },
+
+      { "medicine_code": "MED004", "medicine_name": "Ibuprofen 400mg", "price": 12000.0 }
+  ],
+  "total_cost": 200000,
+  "isCured": true
+}]);
+
+
+
+Câu 1:
+USE clinic;
+
+SELECT 
+    disease AS disease, 
+    COUNT(DISTINCT patient_code) AS patient_count, 
+    ARRAY_AGG(DISTINCT patient_code) AS patient_codes 
+FROM (
+    SELECT 
+        visit.disease_name AS disease, 
+        visit.patient AS patient_code
+    FROM visits AS visit
+    WHERE visit.admission_date >= DATE("2024-09-01") AND 
+          visit.admission_date < DATE("2024-10-01")  
+) AS filtered_visits 
+GROUP BY disease 
+ORDER BY patient_count DESC;
+
+
+[ { "disease": "Cảm Cúm", "patient_count": 3, "patient_codes": [ { "id_number": "111222333", "patient_code": "PAT001", "name": "Hoàng Văn E", "birth_date": "1995-03-12", "address": "15 Nguyễn Trãi, Hà Nội", "phone_number": "0912345678" }, { "id_number": "444555666", "patient_code": "PAT002", "name": "Ngô Thị F", "birth_date": "1995-03-12", "address": "15 Nguyễn Trãi, Hà Nội", "phone_number": "0938765432" }, { "id_number": "555666777", "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233" } ] }
+, { "disease": "Viêm phổi", "patient_count": 2, "patient_codes": [ { "id_number": "111222333", "patient_code": "PAT001", "name": "Hoàng Văn E", "birth_date": "1995-03-12", "address": "15 Nguyễn Trãi, Hà Nội", "phone_number": "0912345678" }, { "id_number": "777888999", "patient_code": "PAT003", "name": "Trần Văn G", "birth_date": "1988-07-15", "address": "5 Trần Hưng Đạo, Đà Nẵng", "phone_number": "0909876543" } ] }
+, { "disease": "Gãy xương", "patient_count": 1, "patient_codes": [ { "id_number": "555666777", "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233" } ] }
+, { "disease": "Sốt xuất huyết", "patient_count": 1, "patient_codes": [ { "id_number": "111222333", "patient_code": "PAT001", "name": "Hoàng Văn E", "birth_date": "1995-03-12", "address": "15 Nguyễn Trãi, Hà Nội", "phone_number": "0912345678" } ] }
+ ]
+
+
+Câu 2:
+--- Lương bác sĩ:
+USE clinic;
+
+SELECT
+  d.doctor_code,
+  d.name,
+  COUNT(v.visit_code) AS completedTreatments,
+  7000000 AS baseSalary,
+  7000000 + COUNT(v.visit_code) * 1000000 AS totalSalary
+FROM
+  doctors AS d
+LEFT JOIN
+  visits AS v ON d.doctor_code = v.doctor.doctor_code  -- Sử dụng LEFT JOIN để lấy tất cả bác sĩ
+  AND v.admission_date >= date('2024-09-01') 
+  AND v.admission_date < date('2024-10-01') 
+  AND v.isCured = true
+GROUP BY
+  d.doctor_code,  
+  d.name;        
+
+{ "doctor_code": "BS001", "name": "Nguyễn Văn A", "completedTreatments": 2, "baseSalary": 7000000, "totalSalary": 9000000 }
+{ "doctor_code": "BS003", "name": "Lê Văn C", "completedTreatments": 0, "baseSalary": 7000000, "totalSalary": 7000000 }
+{ "doctor_code": "BS004", "name": "Phạm Thị D", "completedTreatments": 1, "baseSalary": 7000000, "totalSalary": 8000000 }
+{ "doctor_code": "DOC002", "name": "Trần Thị B", "completedTreatments": 0, "baseSalary": 7000000, "totalSalary": 7000000 }
+{ "doctor_code": "BS002", "name": "Trần Thị Bình", "completedTreatments": 1, "baseSalary": 7000000, "totalSalary": 8000000 }
+{ "doctor_code": "DOC001", "name": "Nguyễn Văn An", "completedTreatments": 2, "baseSalary": 7000000, "totalSalary": 9000000 }
+
+
+
+--- Lương y tá: 
+
+
+USE clinic;
+
+SELECT 
+n.nurse_code,
+    n.name,
+COUNT(v.visit_code) AS numOfVisit,
+5000000 AS baseSalary,
+    5000000 + COUNT(v.visit_code) * 200000 AS salary 
+FROM 
+    nurses AS n
+LEFT JOIN 
+    (SELECT 
+        v.visit_code,
+        nurse.nurse_code
+     FROM 
+        visits AS v
+     UNNEST v.nurses AS nurse 
+WHERE v.admission_date >= date('2024-09-01') 
+    AND v.admission_date < date('2024-10-01') 
+    ) AS v
+ON 
+    n.nurse_code = v.nurse_code 
+GROUP BY 
+    n.nurse_code,
+    n.name,
+    n.years_of_experience;
+
+{ "nurse_code": "NUR005", "name": "Lê Văn C", "numOfVisit": 8, "baseSalary": 5000000, "salary": 6600000 }
+{ "nurse_code": "NUR006", "name": "Phạm Thị D", "numOfVisit": 4, "baseSalary": 5000000, "salary": 5800000 }
+{ "nurse_code": "NUR007", "name": "Hoàng Văn E", "numOfVisit": 1, "baseSalary": 5000000, "salary": 5200000 }
+{ "nurse_code": "NUR001", "name": "Phạm Thị C", "numOfVisit": 5, "baseSalary": 5000000, "salary": 6000000 }
+{ "nurse_code": "NUR002", "name": "Lê Văn D", "numOfVisit": 4, "baseSalary": 5000000, "salary": 5800000 }
+{ "nurse_code": "NUR003", "name": "Trần Văn B", "numOfVisit": 2, "baseSalary": 5000000, "salary": 5400000 }
+{ "nurse_code": "NUR004", "name": "Nguyễn Thị A", "numOfVisit": 3, "baseSalary": 5000000, "salary": 5600000 }
+
+
+
+Câu 3:
+USE clinic;
+
+SELECT 
+    p.patient_code,
+    p.name,
+    p.birth_date,
+    p.address,
+    p.phone_number,
+    ranked_visits.disease_name,
+    ranked_visits.visit_rank,
+    ranked_visits.visit_code,
+    ranked_visits.admission_date,
+    ranked_visits.discharge_date,
+    ranked_visits.total_cost,
+    ranked_visits.isCured,
+    CASE
+        WHEN ranked_visits.isCured THEN 'Cured'
+        ELSE 'Under Treatment'
+    END AS currentStatus
+FROM 
+    patients AS p
+JOIN 
+    (
+        SELECT 
+            v.visit_code, 
+            v.admission_date, 
+            v.discharge_date, 
+            v.disease_name, 
+            v.total_cost, 
+            v.isCured,
+            v.patient,  
+            ROW_NUMBER() OVER (PARTITION BY v.patient.patient_code, v.disease_name ORDER BY v.admission_date) AS visit_rank  -- Chia theo mã bệnh nhân và tên bệnh
+        FROM 
+            visits AS v
+    ) AS ranked_visits ON p.patient_code = ranked_visits.patient.patient_code
+WHERE 
+    p.patient_code = 'PAT005'  -- Thay đổi mã số bệnh nhân nếu cần
+ORDER BY 
+    ranked_visits.disease_name,  
+    ranked_visits.admission_date DESC;  
+
+
+
+{ "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "disease_name": "Cảm Cúm", "visit_rank": 2, "visit_code": "VIS007", "admission_date": "2024-10-01", "discharge_date": "2024-10-01", "total_cost": 200000.0, "isCured": true, "currentStatus": "Cured" }
+{ "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "disease_name": "Cảm Cúm", "visit_rank": 1, "visit_code": "VIS0013", "admission_date": "2024-09-27", "discharge_date": "2024-09-28", "total_cost": 200000.0, "isCured": true, "currentStatus": "Cured" }
+{ "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "disease_name": "Gãy xương", "visit_rank": 3, "visit_code": "VIS0012", "admission_date": "2024-09-25", "discharge_date": "2024-09-26", "total_cost": 700000.0, "isCured": true, "currentStatus": "Cured" }
+{ "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "disease_name": "Gãy xương", "visit_rank": 2, "visit_code": "VIS0011", "admission_date": "2024-09-24", "discharge_date": "2024-09-26", "total_cost": 700000.0, "isCured": false, "currentStatus": "Under Treatment" }
+{ "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "disease_name": "Gãy xương", "visit_rank": 1, "visit_code": "VIS004", "admission_date": "2024-09-20", "discharge_date": "2024-09-22", "total_cost": 700000.0, "isCured": false, "currentStatus": "Under Treatment" }
+
+
+
+USE clinic;
+SELECT 
+    {
+        "patient_code": p.patient_code,
+        "name": p.name,
+        "birth_date": p.birth_date,
+        "address": p.address,
+        "phone_number": p.phone_number,
+        "visits": ARRAY_AGG(
+            {
+                "disease_name": ranked_visits.disease_name,
+                "visit_rank": ranked_visits.visit_rank,
+                "visit_code": ranked_visits.visit_code,
+                "admission_date": ranked_visits.admission_date,
+                "discharge_date": ranked_visits.discharge_date,
+                "total_cost": ranked_visits.total_cost,
+                "isCured": ranked_visits.isCured,
+                "currentStatus": CASE
+                    WHEN ranked_visits.isCured THEN 'Cured'
+                    ELSE 'Under Treatment'
+                END
+            }
+        )
+    } AS patient_info
+FROM 
+    patients AS p
+JOIN 
+    (
+        SELECT 
+            v.visit_code, 
+            v.admission_date, 
+            v.discharge_date, 
+            v.disease_name, 
+            v.total_cost, 
+            v.isCured,
+            v.patient,  
+            ROW_NUMBER() OVER (PARTITION BY v.patient.patient_code, v.disease_name ORDER BY v.admission_date) AS visit_rank  -- Chia theo mã bệnh nhân và tên bệnh
+        FROM 
+            visits AS v
+    ) AS ranked_visits ON p.patient_code = ranked_visits.patient.patient_code
+WHERE 
+    p.patient_code = 'PAT005' 
+GROUP BY 
+    p.patient_code, p.name, p.birth_date, p.address, p.phone_number;
+
+
+ { "patient_info": { "patient_code": "PAT005", "name": "Nguyễn Văn I", "birth_date": "1992-04-20", "address": "30 Bạch Đằng, Cần Thơ", "phone_number": "0911122233", "visits": [ { "disease_name": "Cảm Cúm", "visit_rank": 1, "visit_code": "VIS0013", "admission_date": "2024-09-27", "discharge_date": "2024-09-28", "total_cost": 200000.0, "isCured": true, "currentStatus": "Cured" }, { "disease_name": "Cảm Cúm", "visit_rank": 2, "visit_code": "VIS007", "admission_date": "2024-10-01", "discharge_date": "2024-10-01", "total_cost": 200000.0, "isCured": true, "currentStatus": "Cured" }, { "disease_name": "Gãy xương", "visit_rank": 1, "visit_code": "VIS004", "admission_date": "2024-09-20", "discharge_date": "2024-09-22", "total_cost": 700000.0, "isCured": false, "currentStatus": "Under Treatment" }, { "disease_name": "Gãy xương", "visit_rank": 2, "visit_code": "VIS0011", "admission_date": "2024-09-24", "discharge_date": "2024-09-26", "total_cost": 700000.0, "isCured": false, "currentStatus": "Under Treatment" }, { "disease_name": "Gãy xương", "visit_rank": 3, "visit_code": "VIS0012", "admission_date": "2024-09-25", "discharge_date": "2024-09-26", "total_cost": 700000.0, "isCured": true, "currentStatus": "Cured" } ] } }
+
+
+
+- Câu 4: 
+USE clinic;
+
+select sum(total_revenue) as total_clinic_revenue from (
+SELECT 
+    SUM(m.price) AS total_medicine_cost,
+    v.total_cost + SUM(m.price) AS total_revenue
+FROM 
+    visits AS v
+    UNNEST v.treatments AS t
+    LEFT JOIN medicines AS m ON t.medicine_code = m.medicine_code
+GROUP BY 
+    v.visit_code, v.total_cost) as revenue_per_visit;
+
+
+{ "total_clinic_revenue": 5842000.0 }

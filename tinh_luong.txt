@@ -1,0 +1,107 @@
+db.doctors.aggregate([
+  {
+    $lookup: {
+      from: "visits",
+      localField: "_id",
+      foreignField: "doctor",
+      as: "visits"
+    }
+  },
+  {
+    $addFields: {
+      visitsInMonth: {
+        $filter: {
+          input: "$visits",
+          as: "visit",
+          cond: {
+            $and: [
+              { $gte: ["$$visit.admission_date", ISODate("2024-09-01T00:00:00Z")] }, // Đầu tháng
+              { $lt: ["$$visit.admission_date", ISODate("2024-09-30T23:59:59Z")] },  // Cuối tháng
+              { $eq: ["$$visit.isCured", true] } 
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    $addFields: {
+      completedTreatments: { $size: "$visitsInMonth" } 
+    }
+  },
+  {
+    $addFields: {
+      baseSalary: 7000000,  // Lương cơ bản
+      totalSalary: {
+        $add: [
+          7000000,  // Lương cơ bản
+          { $multiply: ["$completedTreatments", 1000000] } // Thưởng 1 triệu cho mỗi lần chữa khỏi
+        ]
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      code:"$doctor_code",
+      doctor: "$name", // Tên bác sĩ
+      completedTreatments: 1, // Số lần chữa khỏi
+      baseSalary: 1, // Lương cơ bản
+      totalSalary: 1 // Tổng lương
+    }
+  }
+]);
+
+  
+db.nurses.aggregate([
+  {
+    $lookup: {
+      from: "visits",
+      localField: "_id",
+      foreignField: "nurses",  // Kết nối với trường nurses trong visits
+      as: "visitDetails"
+    }
+  },
+  {
+    $addFields: {
+      visitsInMonth: {
+        $filter: {
+          input: "$visitDetails",
+          as: "visit",
+          cond: {
+            $and: [
+              { $gte: ["$$visit.admission_date", ISODate("2024-09-01T00:00:00Z")] },
+              { $lt: ["$$visit.admission_date", ISODate("2024-09-30T23:59:59Z")] }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    $addFields: {
+      numOfVisits: { $size: "$visitsInMonth" }  // Đếm số lần hỗ trợ bệnh nhân trong tháng
+    }
+  },
+  {
+    $addFields: {
+      baseSalary: 5000000,  // Lương cơ bản
+      totalSalary: {
+        $add: [
+          5000000, 
+          { $multiply: ["$numOfVisits", 200000] }  // Thưởng dựa trên số lần khám
+        ]
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      code:"$nurse_code",
+      nurse: "$name",
+      numOfVisits: 1,
+      baseSalary: 1,
+      totalSalary: 1
+    }
+  }
+]);
